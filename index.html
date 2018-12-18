@@ -4,11 +4,12 @@
 <script>
     var foodPref = localStorage.getItem('myOrder');
     console.log(foodPref)
-    foodCont.innerHTML = foodPref   
-    //window.addEventListener('DOMContentLoaded', function () {
-        document.body.style.visiblity = 'hidden';
+    document.body.style.visiblity = 'hidden';
+    
+    window.addEventListener('DOMContentLoaded', function () {
         var foodCont = document.querySelector('#foodCont')
-   // });
+        foodCont.innerHTML = foodPref   
+   });
 </script>
 
 
