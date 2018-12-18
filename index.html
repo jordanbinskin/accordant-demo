@@ -4,9 +4,10 @@
 <script>
     var foodPref = localStorage.getItem('myOrder');
     console.log(foodPref)
-    document.body.style.visibility = "hidden"
+    
     
     document.addEventListener('DOMContentLoaded', function () {
+        document.body.style.visibility = "hidden"
         var foodCont = document.querySelector('#foodCont')
         foodCont.innerHTML = foodPref   
    });
