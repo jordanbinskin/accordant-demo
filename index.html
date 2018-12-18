@@ -1,15 +1,57 @@
 <style>
+
+    body {
+        background-image: url('http://fresnoescorts.club/wp-content/uploads/2018/01/italian-tablecloths-outstanding-red-gingham-check-country-western-cafe-picnic-oilcloth-intended-for-red-check-tablecloth-popular-italian-tablecloths-red-white.jpg');
+        background-size: 80%;
+        background-position: center;
+        visibility: hidden;
+    }
+
+    h1, p, #foodCont{
+        background-color: white; 
+    }
+
     img {
         height: 160px;
         width: 160px;
     }
+
+    .demo-cont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .menu>div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #food-ready > img {
+        display: none;
+        width: 320px;
+        height: 320px;
+    }
+
+    .green {
+        color:green;
+    }
+
+    .red {
+        color: red;
+    }
 </style>
-<div>
-    <h1>Italian Homemade cooking</h1>
+<div class="demo-cont">
+    <h1><span class="green">Italian </span><span>Homemade </span><span class="red">Cooking</span></h1>
     <img src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/male-cook_1f468-200d-1f373.png'
         alt="chefImg" />
     <p>Hello, I am Chef Giuseppe - what would you like to order today?</p>
-    <div>
+    <div class="menu">
         <div>
             <img src='https://shop.coles.com.au/wcsstore/Coles-CAS/images/9/1/9/9196207.jpg' />
             <button>Lasagne</button>
@@ -23,10 +65,50 @@
     <div id="foodCont">
         Your food will be ready soon
     </div>
+    <div id="food-ready">
+        <img src="https://www.cookingclassy.com/wp-content/uploads/2013/03/lasagna15-480x320.jpg" alt="" class="lasagne">
+        <img src="https://static1.squarespace.com/static/55f266e2e4b02bb71474403e/5ac5ece88a922d6acb8e8fb9/5ac5ece8562fa7487470aa26/1522921051576/wood-fired-pizza-oven-a-pizza-after-cooking-in-il-forno-by-marco-brick-wood-oven.JPG?format=500w" alt="" class="pizza">
+    </div>
 </div>
 <script>
-        var foodPref = localStorage.getItem('myOrder');
-        console.log(foodPref)
-        var foodCont = document.querySelector('#foodCont')
-        foodCont.innerHTML = foodPref   
- </script>
+
+window.addEventListener("load", function(event) {
+    document.body.style.visibility = "visible";
+  });
+
+    function foodPrefs(e) {
+        localStorage.setItem('myOrder', e.target.innerHTML)
+        location.reload();
+    }
+
+    var buttons = document.querySelectorAll('button');
+    buttons.forEach(function(ele){
+        ele.addEventListener('click', foodPrefs)
+    })
+    var foodPref = localStorage.getItem('myOrder');
+    console.log(foodPref)
+    var foodCont = document.querySelector('#foodCont')
+    foodCont.innerHTML = `Your ${foodPref} is ready mi amore!`
+
+    document.querySelector(`.${foodPref}`).style.display = "unset";
+
+    window.dataLayer = {};
+              dataLayer.food = {
+                italian: [
+                  'pizza',
+                  'pasta',
+                  'gelato'
+                ],
+                japanese: [
+                  'sushi',
+                  'ramen',
+                  'mochi'
+                ],
+                aussie: [
+                  'kangaroo',
+                  'chips with chicken salt',
+                  'shrimp on barbie'
+                ]
+              };
+
+</script>
