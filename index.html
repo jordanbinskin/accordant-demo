@@ -2,11 +2,13 @@
 </style>
 
 <script>
-    document.body.style.visiblity = 'hidden';
     var foodPref = localStorage.getItem('myOrder');
     console.log(foodPref)
-    var foodCont = document.querySelector('#foodCont')
     foodCont.innerHTML = foodPref   
+    //window.addEventListener('DOMContentLoaded', function () {
+        document.body.style.visiblity = 'hidden';
+        var foodCont = document.querySelector('#foodCont')
+   // });
 </script>
 
 
