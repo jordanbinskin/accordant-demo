@@ -88,7 +88,10 @@ buttons.forEach(function(ele){
 var foodPref = localStorage.getItem('myOrder');
 console.log(foodPref)
 var foodCont = document.querySelector('#foodCont')
-foodCont.innerHTML = `Your ${foodPref} is ready mi amore!`
+if(foodPref) {
+    foodCont.innerHTML = `Your ${foodPref} is ready mi amore!`
+}
+
 
 document.querySelector(`.${foodPref}`).style.display = "unset";
 
